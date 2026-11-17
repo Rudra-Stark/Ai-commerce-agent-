@@ -4,7 +4,8 @@ from .database import engine, Base, SessionLocal
 from typing import Optional 
 from . import models
 from pydantic import BaseModel
-from ollama import chat 
+# from ollama import chat 
+from .agent import run_agent
 
 Base.metadata.create_all(bind = engine)
 
@@ -53,17 +54,7 @@ def get_products(
 
 @app.post("/chat")
 def chat_with_ai(request: ChatRequest):
-    response = chat(
-        model = "qwen3:1.7b",
-        messages = [
-            {
-                "role": "user",
-                "content": request.message 
-            }
-        ]
-    )
-
+    answer = run_agent(request.message)
     return {
-        "response": response.message.content
-        
+        "response": answer
     }

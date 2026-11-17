@@ -1,167 +1,116 @@
 from .database import SessionLocal, engine, Base
 from .models import Product
 
-Base.metadata.create_all(bind = engine)
+Base.metadata.create_all(bind=engine)
 
 products = [
-    Product(
-        name = "SoundMax Pro",
-        category = "headphones",
-        price = 2200,
-        rating = 4.5,
-        description = "Wireless over-ear headphones with 40-hour battery life and active noise cancellation. "
-    ),
-    Product(
-        name = "AudioBeat Lite",
-        category = "headphones",
-        price = 1799,
-        rating = 4.2,
-        description = "LightWeight wireless headphones with 30-hour battery life and comfortable ear cushions. "
-    ),
-    Product(
-        name = "TechPhone A1",
-        category = "smartphone",
-        price = 18999,
-        rating = 4.6,
-        description = "5G smartphone with a high-resolution camera, large display and all-day battery. "
-    ),
-    Product(
-    name="CodeBook Air",
-    category="Laptop",
-    price=54999,
-    rating=4.4,
-    description="15-inch laptop with 16GB RAM and 512GB SSD, designed for programming and productivity."
-    ),
+    # Headphones
+    Product(name="SoundMax Pro", category="headphones", price=2499, rating=4.5,
+            description="Wireless over-ear headphones with 40-hour battery life and ANC."),
+    Product(name="AudioBeat Lite", category="headphones", price=1799, rating=4.2,
+            description="Lightweight wireless headphones with 30-hour battery life."),
+    Product(name="BassPro X1", category="headphones", price=2999, rating=4.6,
+            description="Deep bass wireless headphones with ANC and 50-hour battery life."),
+    Product(name="SonicPods Air", category="headphones", price=1499, rating=4.1,
+            description="Compact wireless earbuds with a charging case."),
+    Product(name="StudioSound 500", category="headphones", price=3999, rating=4.7,
+            description="Over-ear studio headphones with balanced audio."),
+    Product(name="TuneFlex Wireless", category="headphones", price=2199, rating=4.3,
+            description="Flexible wireless headphones with a built-in microphone."),
 
-    Product(
-        name="CodeBook Pro",
-        category="Laptop",
-        price=74999,
-        rating=4.7,
-        description="14-inch high-performance laptop with 16GB RAM and 1TB SSD, ideal for developers and professionals."
-    ),
+    # Smartphones
+    Product(name="TechPhone A1", category="smartphone", price=18999, rating=4.3,
+            description="Smartphone with 8GB RAM and a 5000mAh battery."),
+    Product(name="TechPhone Pro", category="smartphone", price=27999, rating=4.6,
+            description="Performance-focused smartphone with AMOLED display."),
+    Product(name="PixelNova 5G", category="smartphone", price=22999, rating=4.4,
+            description="5G smartphone with a high-resolution camera."),
+    Product(name="SmartOne Lite", category="smartphone", price=12999, rating=4.1,
+            description="Budget smartphone with 6GB RAM and 128GB storage."),
+    Product(name="UltraView X", category="smartphone", price=34999, rating=4.7,
+            description="Premium smartphone with a 120Hz AMOLED display."),
+    Product(name="PowerCell M2", category="smartphone", price=15999, rating=4.2,
+            description="Smartphone with a large battery and fast charging."),
 
-    Product(
-        name="TechMate X1",
-        category="Laptop",
-        price=62999,
-        rating=4.5,
-        description="15.6-inch laptop with Intel Core i5 processor, 16GB RAM and 512GB SSD for everyday work."
-    ),
+    # Laptops
+    Product(name="CodeBook 15", category="laptop", price=54999, rating=4.4,
+            description="Laptop suitable for programming and everyday work."),
+    Product(name="CodeBook Air", category="laptop", price=62999, rating=4.7,
+            description="Lightweight laptop with fast SSD storage."),
+    Product(name="GameCore 16", category="laptop", price=79999, rating=4.5,
+            description="Gaming laptop with dedicated graphics."),
+    Product(name="StudyMate 14", category="laptop", price=42999, rating=4.2,
+            description="Affordable laptop for students and office work."),
+    Product(name="CreatorBook Pro", category="laptop", price=94999, rating=4.8,
+            description="High-performance laptop for creative workloads."),
+    Product(name="WorkStation Z", category="laptop", price=69999, rating=4.6,
+            description="Powerful laptop for multitasking and development."),
 
-    Product(
-        name="PixelBook Lite",
-        category="Laptop",
-        price=45999,
-        rating=4.2,
-        description="Lightweight 14-inch laptop with 8GB RAM and 512GB SSD, perfect for students and office work."
-    ),
+    # Keyboards
+    Product(name="KeyMaster K1", category="keyboard", price=2499, rating=4.5,
+            description="Mechanical keyboard with tactile switches."),
+    Product(name="TypePro Mini", category="keyboard", price=1799, rating=4.2,
+            description="Compact wireless keyboard for everyday use."),
+    Product(name="RGBStrike K2", category="keyboard", price=3299, rating=4.6,
+            description="Mechanical gaming keyboard with RGB lighting."),
+    Product(name="OfficeType 100", category="keyboard", price=899, rating=4.0,
+            description="Affordable wired keyboard for office work."),
+    Product(name="KeyFlex Wireless", category="keyboard", price=2199, rating=4.4,
+            description="Wireless keyboard with comfortable low-profile keys."),
+    Product(name="ProGamer TKL", category="keyboard", price=3999, rating=4.7,
+            description="Tenkeyless mechanical keyboard for gaming."),
 
-    Product(
-        name="GameForce 15",
-        category="Gaming Laptop",
-        price=89999,
-        rating=4.6,
-        description="15.6-inch gaming laptop with powerful graphics, 16GB RAM and 1TB SSD for gaming and content creation."
-    ),
+    # Mice
+    Product(name="SpeedMouse M1", category="mouse", price=1299, rating=4.4,
+            description="Ergonomic wireless mouse for everyday use."),
+    Product(name="GameMouse X", category="mouse", price=2199, rating=4.6,
+            description="Gaming mouse with adjustable DPI."),
+    Product(name="ClickPro Basic", category="mouse", price=499, rating=4.0,
+            description="Simple wired mouse for office and home use."),
+    Product(name="Precision M5", category="mouse", price=1799, rating=4.5,
+            description="Precision wireless mouse with adjustable sensitivity."),
+    Product(name="RGBStrike Mouse", category="mouse", price=2499, rating=4.6,
+            description="Gaming mouse with RGB lighting and programmable buttons."),
+    Product(name="TravelMouse S", category="mouse", price=999, rating=4.2,
+            description="Compact portable wireless mouse for laptops."),
 
-    Product(
-        name="UltraView 27",
-        category="Monitor",
-        price=18999,
-        rating=4.5,
-        description="27-inch Full HD IPS monitor with vibrant colors and a 100Hz refresh rate for work and entertainment."
-    ),
+    # Smartwatches
+    Product(name="FitWatch Neo", category="smartwatch", price=2499, rating=4.2,
+            description="Smartwatch with activity tracking and notifications."),
+    Product(name="PulseTrack Pro", category="smartwatch", price=4999, rating=4.5,
+            description="Smartwatch with GPS and multiple sports modes."),
+    Product(name="TimeFit Active", category="smartwatch", price=3299, rating=4.3,
+            description="Fitness smartwatch with a bright display."),
+    Product(name="WatchLite S", category="smartwatch", price=1799, rating=4.0,
+            description="Entry-level smartwatch with basic fitness features."),
 
-Product(
-    name="KeyPro Mechanical",
-    category="Keyboard",
-    price=3499,
-    rating=4.4,
-    description="Mechanical keyboard with RGB lighting, tactile switches and a comfortable design for programming and gaming."
-),
-
-Product(
-    name="SpeedMouse X",
-    category="Mouse",
-    price=1999,
-    rating=4.3,
-    description="Wireless ergonomic mouse with adjustable DPI and long battery life for productivity and gaming."
-),
-
-Product(
-    name="SoundPods Pro",
-    category="Earbuds",
-    price=4999,
-    rating=4.5,
-    description="Wireless earbuds with active noise cancellation, clear audio and up to 30 hours of battery life."
-),
-
-Product(
-    name="BassMax 500",
-    category="Headphones",
-    price=6999,
-    rating=4.6,
-    description="Over-ear wireless headphones with deep bass, active noise cancellation and comfortable ear cushions."
-),
-
-Product(
-    name="PowerBank Ultra",
-    category="Power Bank",
-    price=2499,
-    rating=4.3,
-    description="20000mAh power bank with fast charging and dual USB ports for smartphones and other devices."
-),
-
-Product(
-    name="SmartWatch Fit",
-    category="Smartwatch",
-    price=5999,
-    rating=4.4,
-    description="Smartwatch with fitness tracking, heart-rate monitoring, sleep tracking and smartphone notifications."
-),
-
-Product(
-    name="PhoneMax 5G",
-    category="Smartphone",
-    price=29999,
-    rating=4.5,
-    description="5G smartphone with a 6.6-inch AMOLED display, 128GB storage and a high-resolution camera."
-),
-
-Product(
-    name="TabPro 11",
-    category="Tablet",
-    price=24999,
-    rating=4.3,
-    description="11-inch tablet with 8GB RAM and 128GB storage, suitable for studying, entertainment and productivity."
-),
-
-Product(
-    name="WebCam HD Pro",
-    category="Webcam",
-    price=2999,
-    rating=4.2,
-    description="1080p webcam with built-in microphone, autofocus and wide-angle lens for online meetings and streaming."
-),
+    # Monitors
+    Product(name="ViewMax 24", category="monitor", price=8999, rating=4.4,
+            description="24-inch Full HD monitor for work and entertainment."),
+    Product(name="UltraView 27", category="monitor", price=14999, rating=4.6,
+            description="27-inch QHD monitor with a 100Hz refresh rate."),
+    Product(name="GameScreen 24G", category="monitor", price=11999, rating=4.5,
+            description="24-inch gaming monitor with a 165Hz refresh rate."),
+    Product(name="OfficeDisplay 22", category="monitor", price=6999, rating=4.1,
+            description="22-inch Full HD monitor for everyday office use."),
 ]
 
 def seed_database():
     db = SessionLocal()
+
     try:
+        db.query(Product).delete()
+        db.add_all(products)
+        db.commit()
+        print(f"Successfully seeded {len(products)} products.")
 
-        if db.query(Product).count() == 0:
-            db.add_all(products)
-            db.commit()
-            print("Products added successfully!")
-
-        else:
-            print("Database already contains products.")
+    except Exception:
+        db.rollback()
+        raise
 
     finally:
         db.close()
 
+
 if __name__ == "__main__":
     seed_database()
-
-    
