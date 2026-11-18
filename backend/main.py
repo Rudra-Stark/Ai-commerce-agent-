@@ -6,10 +6,13 @@ from . import models
 from pydantic import BaseModel
 # from ollama import chat 
 from .agent import run_agent
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 Base.metadata.create_all(bind = engine)
 
 app = FastAPI(title = "AI Commerce Agent")
+app.mount("/static",StaticFiles(directory="frontend"), name="static")
 
 def get_db():
     db = SessionLocal()
@@ -26,7 +29,7 @@ class ChatRequest(BaseModel):
         
 @app.get("/")
 def root():
-    return {"message" : "AI Commerce is running "}
+    return FileResponse("frontend/index.html")
 
 @app.get("/health")
 def health_check():
